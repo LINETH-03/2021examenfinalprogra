@@ -22,7 +22,7 @@ public class ordenes extends javax.swing.JFrame {
      */
     public ordenes() {
         initComponents();
-        comordsucur.addItem("<Seleccionar>");
+       
         comordsucur.addItem("GUATEMALA");
         comordsucur.addItem("JALAPA");
         comordsucur.addItem("PROGRESO");
@@ -44,19 +44,19 @@ public class ordenes extends javax.swing.JFrame {
         return datosgua;
     }
     public String [] datajal(String data){
-        String [] datosjal = new String[ctm.tamaño()];
+        String [] datosjal = new String[ctm.tamañojal()];
         if(data.equals("JALAPA")){
-            for (int i = 0; i < ctm.tamaño(); i++) {
-                datosjal[i] = ctm.obtener(i).getNombre();
+            for (int i = 0; i < ctm.tamañojal(); i++) {
+                datosjal[i] = ctm.obtenerjal(i).getNombre();
             }
         }
         return datosjal;
     }
     public String [] datapro(String data){
-        String [] datopro = new String[ctm.tamaño()];
-        if(data.equals("GUATEMALA")){
-            for (int i = 0; i < ctm.tamaño(); i++) {
-                datopro[i] = ctm.obtener(i).getNombre();
+        String [] datopro = new String[ctm.tamañopro()];
+        if(data.equals("EL PROGRESO")){
+            for (int i = 0; i < ctm.tamañopro(); i++) {
+                datopro[i] = ctm.obtenerpro(i).getNombre();
             }
         }
         return datopro;
@@ -104,6 +104,11 @@ public class ordenes extends javax.swing.JFrame {
         comordpizzas.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 comordpizzasItemStateChanged(evt);
+            }
+        });
+        comordpizzas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                comordpizzasMouseClicked(evt);
             }
         });
         comordpizzas.addActionListener(new java.awt.event.ActionListener() {
@@ -260,7 +265,13 @@ public class ordenes extends javax.swing.JFrame {
     
     private void comordpizzasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comordpizzasItemStateChanged
         // TODO add your handling code here:
+     
+        
     }//GEN-LAST:event_comordpizzasItemStateChanged
+
+    private void comordpizzasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comordpizzasMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comordpizzasMouseClicked
     
     /**
      * @param args the command line arguments

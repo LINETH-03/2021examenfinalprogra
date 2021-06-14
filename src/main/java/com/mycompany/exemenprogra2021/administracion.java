@@ -113,10 +113,6 @@ public class administracion extends javax.swing.JFrame {
     
     
     
-    
-    
-    
-    
     }
     
     
