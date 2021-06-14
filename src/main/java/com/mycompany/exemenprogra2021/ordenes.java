@@ -31,9 +31,9 @@ public class ordenes extends javax.swing.JFrame {
         comordsucur.addItem("GUATEMALA");
         comordsucur.addItem("JALAPA");
         comordsucur.addItem("EL PROGRESO");
-        //String titulos[]= {"NOMBRE","DESCRIPCION","PRECIO","SUCURSAL"};
-        //mod.setColumnIdentifiers(titulos);
-        //TABLAORDNERS.setModel(mod);
+        String titulos[]= {"NO","NOMBRE","DESCRIPCION","PRECIO","SUCURSAL"};
+        mod.setColumnIdentifiers(titulos);
+        TABLAORDNERS.setModel(mod);
     }
     public void mostab(){
        
@@ -86,7 +86,11 @@ public class ordenes extends javax.swing.JFrame {
         }
         return datopro;
     }
-    
+    public void ii(){
+        AREAORDENES.setText("...");
+        LBLPRECIO.setText("--");    
+        
+    }
  
 
   
@@ -270,23 +274,20 @@ public class ordenes extends javax.swing.JFrame {
             if(this.comordsucur.getSelectedIndex() == 0 ){
             
                 this.comordpizzas.setModel(new DefaultComboBoxModel(this.spacio(this.comordsucur.getSelectedItem().toString())));
-                AREAORDENES.setText("...");
-                LBLPRECIO.setText("--");    
+                ii();
+                
             }else if(this.comordsucur.getSelectedIndex() == 1 ){
             
                 this.comordpizzas.setModel(new DefaultComboBoxModel(this.data(this.comordsucur.getSelectedItem().toString())));
-                AREAORDENES.setText("...");
-                LBLPRECIO.setText("--");    
+                ii();  
             }else if(this.comordsucur.getSelectedIndex() == 2 ){
             
                 this.comordpizzas.setModel(new DefaultComboBoxModel(this.datajal(this.comordsucur.getSelectedItem().toString())));
-                AREAORDENES.setText("...");
-                LBLPRECIO.setText("--");    
+                ii();    
             }else if(this.comordsucur.getSelectedIndex() == 3 ){
             
                 this.comordpizzas.setModel(new DefaultComboBoxModel(this.datapro(this.comordsucur.getSelectedItem().toString())));
-                AREAORDENES.setText("...");
-                LBLPRECIO.setText("--");    
+                ii();    
             }
     }//GEN-LAST:event_comordsucurItemStateChanged
     }
@@ -295,6 +296,8 @@ public class ordenes extends javax.swing.JFrame {
     
     private void comordpizzasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comordpizzasItemStateChanged
         // TODO add your handling code here:
+        
+       
      
         
     }//GEN-LAST:event_comordpizzasItemStateChanged

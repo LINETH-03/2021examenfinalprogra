@@ -33,10 +33,22 @@ public class administracion extends javax.swing.JFrame {
         //model.addColumn("PRECIO");
         tabadmon.setModel(model);
     }
+    
+    public void limpiar(){
+    TXTNAME.setText("");
+    AREADESCRIP.setText("");
+    TXTPRECIO.setText("");
+
+}
     public void mostrartablaguatemala(){
+        boolean verificar;
+        String sucursal=COMBOSUCURSALES.getSelectedItem().toString();
+    if(sucursal=="GUATEMALA"){
         String nombre = TXTNAME.getText();
         String descripcion = AREADESCRIP.getText();
         String precio =TXTPRECIO.getText();
+        verificar= TXTNAME.getText().equals("")|| AREADESCRIP.getText().equals("")|| TXTPRECIO.getText().equals("");
+        if(!verificar){
         tab a = new tab(nombre, descripcion, precio);
         ctm.adicionar(a);
         model.setRowCount(0);
@@ -49,13 +61,25 @@ public class administracion extends javax.swing.JFrame {
                 
             };
             model.addRow(fila);
+            limpiar();
+            JOptionPane.showMessageDialog(null, "Se agrego en la Sucursal GUATEMALA");
         
-        } 
+        }
+        }else{
+            JOptionPane.showMessageDialog(null, "Llene todos los campos");
+        
+        }
+    }
     }
     public void mostrartablajalapa(){
+        boolean verificar;
+        String sucursal=COMBOSUCURSALES.getSelectedItem().toString();
+        
         String nombre = TXTNAME.getText();
         String descripcion = AREADESCRIP.getText();
         String precio =TXTPRECIO.getText();
+        verificar= TXTNAME.getText().equals("")|| AREADESCRIP.getText().equals("")|| TXTPRECIO.getText().equals("");
+        if(!verificar){
         tab b = new tab(nombre, descripcion, precio);
         ctm.addjal(b);
         model.setRowCount(0);
@@ -68,13 +92,24 @@ public class administracion extends javax.swing.JFrame {
                 
             };
             model.addRow(filajal);
+            limpiar();
+            JOptionPane.showMessageDialog(null, "Se agrego en la Sucursal JALAPA");
         
-        } 
+        }
+        }else{
+            JOptionPane.showMessageDialog(null, "Llene todos los campos");
+        
+        }
     }
     public void mostrartablaprogreso(){
+        boolean verificar;
+        String sucursal=COMBOSUCURSALES.getSelectedItem().toString();
+        
         String nombre = TXTNAME.getText();
         String descripcion = AREADESCRIP.getText();
         String precio =TXTPRECIO.getText();
+        verificar= TXTNAME.getText().equals("")|| AREADESCRIP.getText().equals("")|| TXTPRECIO.getText().equals("");
+        if(!verificar){
         tab c = new tab(nombre, descripcion, precio);
         ctm.addpro(c);
         model.setRowCount(0);
@@ -86,9 +121,18 @@ public class administracion extends javax.swing.JFrame {
                 
                 
             };
+           
             model.addRow(filapro);
+            JOptionPane.showMessageDialog(null, "Se agrego en la Sucursal EL PROGRESO");
+           
+            
+            limpiar();
         
-        } 
+        }
+      
+        }else{
+            JOptionPane.showMessageDialog(null, "Llene todos los campos");
+        }
     }
     
     
@@ -98,15 +142,15 @@ public class administracion extends javax.swing.JFrame {
       
         if(sucursal=="GUATEMALA"){
             mostrartablaguatemala();
-             JOptionPane.showMessageDialog(null, "Se agrego en la Sucursal GUATEMALA");
+             
         
         
         }else if(sucursal=="JALAPA"){
             mostrartablajalapa();
-             JOptionPane.showMessageDialog(null, "Se agrego en la Sucursal JALAPA");
+              
     }else if(sucursal=="EL PROGRESO"){
         mostrartablaprogreso();
-         JOptionPane.showMessageDialog(null, "Se agrego en la Sucursal EL PROGRESO");
+         
     
     
     }
