@@ -8,6 +8,7 @@ import arreglotab.arreglos;
 import clase.tab;
 import java.awt.event.ItemEvent;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,7 +17,11 @@ import javax.swing.DefaultComboBoxModel;
 public class ordenes extends javax.swing.JFrame {
    public static  administracion inicio = new administracion();
     arreglos ctm = new arreglos();
-
+    DefaultTableModel mod = new DefaultTableModel();
+   // public static String datos[]=new String[4];
+    
+    
+    
     /**
      * Creates new form ordenes
      */
@@ -25,7 +30,27 @@ public class ordenes extends javax.swing.JFrame {
        
         comordsucur.addItem("GUATEMALA");
         comordsucur.addItem("JALAPA");
-        comordsucur.addItem("PROGRESO");
+        comordsucur.addItem("EL PROGRESO");
+        //String titulos[]= {"NOMBRE","DESCRIPCION","PRECIO","SUCURSAL"};
+        //mod.setColumnIdentifiers(titulos);
+        //TABLAORDNERS.setModel(mod);
+    }
+    public void mostab(){
+       
+      /* String nombre= (String) comordpizzas.getSelectedItem();
+       String descrip=AREAORDENES.getText();
+       String pre=LBLPRECIO.getText();
+       String sucursal= (String) comordsucur.getSelectedItem();
+        
+       
+            datos[0]=(String) comordpizzas.getSelectedItem();
+            datos[1]=AREAORDENES.getText();
+            datos[2]=LBLPRECIO.getText();
+            datos[4]=(String) comordsucur.getSelectedItem();
+            mod.addRow(datos);*/
+    
+    
+    
     }
     
     public String [] spacio(String spacio){
@@ -80,7 +105,7 @@ public class ordenes extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TABLAORDNERS = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
         LBLPRECIO = new javax.swing.JLabel();
 
@@ -133,8 +158,13 @@ public class ordenes extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(0, 204, 51));
         jButton2.setText("ORDENAR");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TABLAORDNERS.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -145,11 +175,11 @@ public class ordenes extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(TABLAORDNERS);
 
         jLabel5.setText("PRECIO Q.");
 
-        LBLPRECIO.setText("CANT");
+        LBLPRECIO.setText(" ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -240,22 +270,22 @@ public class ordenes extends javax.swing.JFrame {
             if(this.comordsucur.getSelectedIndex() == 0 ){
             
                 this.comordpizzas.setModel(new DefaultComboBoxModel(this.spacio(this.comordsucur.getSelectedItem().toString())));
-                AREAORDENES.setText("");
+                AREAORDENES.setText("...");
                 LBLPRECIO.setText("--");    
             }else if(this.comordsucur.getSelectedIndex() == 1 ){
             
                 this.comordpizzas.setModel(new DefaultComboBoxModel(this.data(this.comordsucur.getSelectedItem().toString())));
-                AREAORDENES.setText("");
+                AREAORDENES.setText("...");
                 LBLPRECIO.setText("--");    
             }else if(this.comordsucur.getSelectedIndex() == 2 ){
             
                 this.comordpizzas.setModel(new DefaultComboBoxModel(this.datajal(this.comordsucur.getSelectedItem().toString())));
-                AREAORDENES.setText("");
+                AREAORDENES.setText("...");
                 LBLPRECIO.setText("--");    
             }else if(this.comordsucur.getSelectedIndex() == 3 ){
             
                 this.comordpizzas.setModel(new DefaultComboBoxModel(this.datapro(this.comordsucur.getSelectedItem().toString())));
-                AREAORDENES.setText("");
+                AREAORDENES.setText("...");
                 LBLPRECIO.setText("--");    
             }
     }//GEN-LAST:event_comordsucurItemStateChanged
@@ -272,6 +302,11 @@ public class ordenes extends javax.swing.JFrame {
     private void comordpizzasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comordpizzasMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_comordpizzasMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_jButton2ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -311,6 +346,7 @@ public class ordenes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea AREAORDENES;
     private javax.swing.JLabel LBLPRECIO;
+    private javax.swing.JTable TABLAORDNERS;
     private javax.swing.JComboBox<String> comordpizzas;
     private javax.swing.JComboBox<String> comordsucur;
     private javax.swing.JButton jButton1;
@@ -322,6 +358,5 @@ public class ordenes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
