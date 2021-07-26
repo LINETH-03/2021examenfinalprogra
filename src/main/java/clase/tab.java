@@ -21,6 +21,7 @@ public class tab {
     }
 
     public String getNombre() {
+        
         return nombre;
     }
 

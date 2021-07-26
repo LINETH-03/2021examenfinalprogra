@@ -16,9 +16,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ordenes extends javax.swing.JFrame {
    public static  administracion inicio = new administracion();
+    
     arreglos ctm = new arreglos();
+    
     DefaultTableModel mod = new DefaultTableModel();
-   // public static String datos[]=new String[4];
+   //public static String datos[]=new String[4];
     
     
     
@@ -27,17 +29,16 @@ public class ordenes extends javax.swing.JFrame {
      */
     public ordenes() {
         initComponents();
-       
         comordsucur.addItem("GUATEMALA");
         comordsucur.addItem("JALAPA");
         comordsucur.addItem("EL PROGRESO");
-        String titulos[]= {"NO","NOMBRE","DESCRIPCION","PRECIO","SUCURSAL"};
-        mod.setColumnIdentifiers(titulos);
-        TABLAORDNERS.setModel(mod);
+        String titulos[]= {"NOMBRE","DESCRIPCION","PRECIO","SUCURSAL"};
+       mod.setColumnIdentifiers(titulos);
+       TABLAORDNERS.setModel(mod);
     }
     public void mostab(){
        
-      /* String nombre= (String) comordpizzas.getSelectedItem();
+     /* String nombre= (String) comordpizzas.getSelectedItem();
        String descrip=AREAORDENES.getText();
        String pre=LBLPRECIO.getText();
        String sucursal= (String) comordsucur.getSelectedItem();
@@ -47,8 +48,8 @@ public class ordenes extends javax.swing.JFrame {
             datos[1]=AREAORDENES.getText();
             datos[2]=LBLPRECIO.getText();
             datos[4]=(String) comordsucur.getSelectedItem();
-            mod.addRow(datos);*/
-    
+            mod.addRow(datos);
+    */
     
     
     }
@@ -61,6 +62,7 @@ public class ordenes extends javax.swing.JFrame {
     
     public String [] data(String data){
         String [] datosgua = new String[ctm.tamaño()];
+       
         if(data.equals("GUATEMALA")){
             for (int i = 0; i < ctm.tamaño(); i++) {
                 datosgua[i] = ctm.obtener(i).getNombre();
@@ -129,7 +131,6 @@ public class ordenes extends javax.swing.JFrame {
 
         jLabel3.setText("pizzas:");
 
-        comordpizzas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
         comordpizzas.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 comordpizzasItemStateChanged(evt);
@@ -271,15 +272,18 @@ public class ordenes extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(evt.getStateChange() == ItemEvent.SELECTED){
         
-            if(this.comordsucur.getSelectedIndex() == 0 ){
+            /*if(this.comordsucur.getSelectedIndex() == 0 ){
             
                 this.comordpizzas.setModel(new DefaultComboBoxModel(this.spacio(this.comordsucur.getSelectedItem().toString())));
                 ii();
                 
-            }else if(this.comordsucur.getSelectedIndex() == 1 ){
+            }else */if(this.comordsucur.getSelectedIndex() == 1 ){
             
                 this.comordpizzas.setModel(new DefaultComboBoxModel(this.data(this.comordsucur.getSelectedItem().toString())));
-                ii();  
+                ii();
+               
+                
+                
             }else if(this.comordsucur.getSelectedIndex() == 2 ){
             
                 this.comordpizzas.setModel(new DefaultComboBoxModel(this.datajal(this.comordsucur.getSelectedItem().toString())));
@@ -296,6 +300,73 @@ public class ordenes extends javax.swing.JFrame {
     
     private void comordpizzasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comordpizzasItemStateChanged
         // TODO add your handling code here:
+        if(this.comordsucur.getSelectedIndex() == 0){
+            
+         this.comordpizzas.setModel(new DefaultComboBoxModel(this.spacio(this.comordsucur.getSelectedItem().toString())));
+            
+        }else if(this.comordpizzas.getSelectedIndex() == 0){
+            
+          ii();
+            
+        }else if(this.comordsucur.getSelectedIndex() == 1){
+            
+            if(this.comordpizzas.getSelectedIndex() > 0){
+            
+               String buscar = (String) comordpizzas.getSelectedItem();
+               for (int i = 0; i < ctm.tamaño(); i++) {
+                
+                    if(buscar.equals(ctm.obtener(i).getNombre())){
+                
+                        LBLPRECIO.setText(ctm.obtener(i).getPrecio());
+                        AREAORDENES.setText(ctm.obtener(i).getDescripcion());
+                    
+                    }
+                }
+            
+               
+            
+            }
+  
+        }else if(this.comordsucur.getSelectedIndex() == 2){
+            
+            if(this.comordpizzas.getSelectedIndex() > 0){
+            
+               String buscar = (String) comordpizzas.getSelectedItem();
+               for (int i = 0; i < ctm.tamañojal(); i++) {
+                
+                    if(buscar.equals(ctm.obtenerjal(i).getNombre())){
+                
+                        LBLPRECIO.setText(ctm.obtenerjal(i).getPrecio());
+                        AREAORDENES.setText(ctm.obtenerjal(i).getDescripcion());
+                    
+                    }
+                }
+            
+               
+            
+            }
+  
+        }else if(this.comordsucur.getSelectedIndex() == 3){
+            
+            if(this.comordpizzas.getSelectedIndex() > 0){
+            
+               String buscar = (String) comordpizzas.getSelectedItem();
+               for (int i = 0; i < ctm.tamañopro(); i++) {
+                
+                    if(buscar.equals(ctm.obtenerpro(i).getNombre())){
+                
+                        LBLPRECIO.setText(ctm.obtenerpro(i).getPrecio());
+                        AREAORDENES.setText(ctm.obtenerpro(i).getDescripcion());
+                    
+                    }
+                }
+            
+               
+            
+            }
+  
+        }
+       
         
        
      
@@ -304,10 +375,21 @@ public class ordenes extends javax.swing.JFrame {
 
     private void comordpizzasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comordpizzasMouseClicked
         // TODO add your handling code here:
+       
+         
+         
+        
+            
+                
+               
+               
+               
+               
     }//GEN-LAST:event_comordpizzasMouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        mostab();
        
     }//GEN-LAST:event_jButton2ActionPerformed
     

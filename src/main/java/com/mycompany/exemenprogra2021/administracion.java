@@ -91,6 +91,7 @@ public class administracion extends javax.swing.JFrame {
                 
                 
             };
+            
             model.addRow(filajal);
             limpiar();
             JOptionPane.showMessageDialog(null, "Se agrego en la Sucursal JALAPA");
@@ -115,6 +116,7 @@ public class administracion extends javax.swing.JFrame {
         model.setRowCount(0);
         for(int i = 0; i <ctm.tamañopro();i++){
             Object[] filapro={
+                
                 ctm.obtenerpro(i).getNombre(),
                 ctm.obtenerpro(i).getDescripcion(),
                 ctm.obtenerpro(i).getPrecio(),

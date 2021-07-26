@@ -15,13 +15,19 @@ public class arreglos {
     public static ArrayList<tab>arreglogua;
     public static ArrayList<tab>arreglojal;
     public static ArrayList<tab>arreglopro;
+    
+    
+    
 
     public arreglos() {
         arreglogua = new ArrayList<tab>();
         arreglojal = new ArrayList<tab>();
         arreglopro= new ArrayList<tab>();
+        
     }
     public void adicionar (tab a){
+        
+      
         arreglogua.add(a);
 
     }
